@@ -9,12 +9,21 @@ const AboutSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".about-anim").forEach((el) => {
-        gsap.fromTo(el, { y: 50, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 1, ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-        });
-      });
+      gsap.fromTo(".about-anim",
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+          },
+        }
+      );
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -25,7 +34,7 @@ const AboutSection = () => {
 
         {/* Left Column */}
         <div className="flex-1 flex flex-col gap-6 md:gap-8">
-          <div className="about-anim w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden">
+          <div className="about-anim w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80"
               alt="Elegant living room"
@@ -36,7 +45,7 @@ const AboutSection = () => {
             <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-wider uppercase border border-foreground/20 rounded-full px-4 py-1.5">
               Gorgeous Interior
             </span>
-            <h2 className="font-sans text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-none text-foreground">
+            <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-none text-foreground">
               Modern<br />Minimalist
             </h2>
           </div>
@@ -46,7 +55,7 @@ const AboutSection = () => {
         <div className="lg:w-[400px] xl:w-[450px] flex flex-col gap-6 md:gap-8 lg:pt-0">
 
           {/* Top Beige Card */}
-          <div className="about-anim bg-[#F2ECE4] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between h-[300px] lg:h-[350px]">
+          <div className="about-anim bg-[#F2ECE4] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-10 flex flex-col justify-between h-auto min-h-[250px] sm:h-[300px] lg:h-[350px]">
             <div className="space-y-4">
               <span className="inline-block text-[10px] font-semibold tracking-wider uppercase border border-foreground/10 rounded-full px-3 py-1 bg-white/50">
                 Aesthetic
@@ -55,13 +64,13 @@ const AboutSection = () => {
                 Aesthetic furniture where every piece tells a story of style
               </p>
             </div>
-            <h3 className="font-sans text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight">
+            <h3 className="font-sans text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight mt-6">
               Into a gallery<br />of elegance
             </h3>
           </div>
 
           {/* Bottom Image Card */}
-          <div className="about-anim relative h-[300px] lg:h-[400px] rounded-[2rem] overflow-hidden group">
+          <div className="about-anim relative h-[250px] sm:h-[300px] lg:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden group">
             <img
               src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80"
               alt="Artistic furniture piece"

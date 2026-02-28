@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+         import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -18,12 +18,24 @@ const ProjectsSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".project-anim").forEach((el, i) => {
-        gsap.fromTo(el, { y: 60, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 0.8, delay: i * 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-        });
-      });
+      const isMobile = window.innerWidth < 1024;
+
+      gsap.fromTo(".project-anim",
+        { y: 80, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          stagger: isMobile ? 0 : 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+          },
+        }
+      );
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -34,7 +46,7 @@ const ProjectsSection = () => {
 
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
-          <h2 className="project-anim font-sans text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] max-w-2xl">
+          <h2 className="project-anim font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] max-w-2xl">
             Explore Our Proudly<br />Collection
           </h2>
           <div className="project-anim flex flex-col items-start lg:items-end text-left lg:text-right max-w-sm gap-6">
@@ -48,7 +60,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Bento Box Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-[200px] sm:auto-rows-[250px] md:auto-rows-[300px]">
           {projects.map((p, index) => (
             <div
               key={p.title}

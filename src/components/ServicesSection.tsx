@@ -9,12 +9,24 @@ const ServicesSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".service-anim").forEach((el) => {
-        gsap.fromTo(el, { y: 50, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 1, ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-        });
-      });
+      const isMobile = window.innerWidth < 1024;
+
+      gsap.fromTo(".service-anim",
+        { y: 80, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          stagger: isMobile ? 0 : 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse"
+          },
+        }
+      );
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -24,7 +36,7 @@ const ServicesSection = () => {
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
 
         {/* Left Image */}
-        <div className="service-anim w-full lg:w-1/2 h-[400px] md:h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden">
+        <div className="service-anim w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80"
             alt="Living room interior"
@@ -34,7 +46,7 @@ const ServicesSection = () => {
 
         {/* Right Content */}
         <div className="service-anim w-full lg:w-1/2 flex flex-col items-start max-w-xl">
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-6 mt-4 lg:mt-0">
             <span className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-foreground/80">
               Services
             </span>
@@ -44,7 +56,7 @@ const ServicesSection = () => {
             </span>
           </div>
 
-          <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
             Bespoke Services<br />Timeless Spaces
           </h2>
 

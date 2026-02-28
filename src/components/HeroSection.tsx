@@ -6,15 +6,25 @@ const HeroSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Main background image slight zoom out
+      gsap.fromTo(
+        ".hero-bg",
+        { scale: 1.1 },
+        { scale: 1, duration: 2, ease: "power3.out" }
+      );
+
+      // Staggered text reveal for title
       gsap.fromTo(
         ".hero-title",
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out" }
+        { y: 100, opacity: 0, rotationX: -20 },
+        { y: 0, opacity: 1, rotationX: 0, duration: 1.2, delay: 0.3, stagger: 0.2, ease: "power4.out" }
       );
+
+      // Card slides up and fades in
       gsap.fromTo(
         ".hero-card",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: "power3.out" }
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, delay: 0.8, ease: "power3.out" }
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -27,14 +37,14 @@ const HeroSection = () => {
         <img
           src="/assests-heroSection/hero.jpg"
           alt="Luxury contemporary interior"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/10" />
 
         {/* Huge Centered Typography */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <h1 className="hero-title font-sans text-5xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-bold text-white tracking-tighter drop-shadow-lg">
+          <h1 className="hero-title font-sans text-[2.75rem] sm:text-5xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-bold text-white tracking-tighter drop-shadow-lg">
             Contemporary
           </h1>
         </div>
