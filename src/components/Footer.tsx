@@ -90,7 +90,7 @@ const Footer = () => {
 
           <div className="footer-anim w-full lg:w-auto flex flex-wrap justify-start lg:justify-end">
             <span className="font-sans text-[2.5rem] sm:text-5xl md:text-7xl lg:text-[5rem] font-bold tracking-tighter text-white break-words w-full lg:w-auto">
-              company name
+              Jainam Decor
             </span>
           </div>
 

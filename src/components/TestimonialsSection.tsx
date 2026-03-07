@@ -1,52 +1,65 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
-  { quote: "company transformed our home into something we could never have imagined. Every corner speaks elegance and warmth. Their attention to detail is unmatched.", name: "Aditya & Family", role: "Residential Client, Hyderabad" },
-  { quote: "Working with the company team was a seamless experience. They understood our lifestyle perfectly and delivered a space that feels both luxurious and deeply personal.", name: "Vikash & Rupali", role: "Villa Project, Bangalore" },
-  { quote: "From concept to completion, the professionalism and creative vision were extraordinary. Our commercial space now truly reflects our brand's identity.", name: "Rupesh & Family", role: "Commercial Client, Mumbai" },
+  {
+    author: "Aditya & family",
+    role: "Homeowner",
+    quote: "RU Interior Design paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience."
+  },
+  {
+    author: "Vikash and Rupali",
+    role: "Homeowner",
+    quote: "RU Interior Design paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience."
+  },
+  {
+    author: "Rupesh and family",
+    role: "Architect & Homeowner",
+    quote: "As an architect myself, I'm incredibly selective. INTERIOR exceeded every expectation. Their craftsmanship and vision are truly world-class."
+  }
 ];
 
 const TestimonialsSection = () => {
-  const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const quoteRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => setActive((p) => (p + 1) % testimonials.length), 6000);
-    return () => clearInterval(interval);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".test-anim",
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out",
+          scrollTrigger: { trigger: ref.current, start: "top 80%" }
+        }
+      );
+    }, ref);
+    return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (quoteRef.current) {
-      gsap.fromTo(quoteRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
-    }
-  }, [active]);
-
   return (
-    <section ref={ref} className="py-24 md:py-36 px-6 bg-secondary">
-      <div className="max-w-4xl mx-auto text-center">
-        <span className="inline-block text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground border border-border px-4 py-1.5 rounded-full mb-10">
-          Client Stories
-        </span>
-        <div ref={quoteRef} className="min-h-[250px] flex flex-col items-center justify-center">
-          <p className="font-serif text-2xl md:text-4xl font-light leading-relaxed italic text-foreground mb-10">
-            "{testimonials[active].quote}"
-          </p>
-          <p className="font-medium text-foreground">{testimonials[active].name}</p>
-          <p className="text-sm text-muted-foreground mt-1">{testimonials[active].role}</p>
+    <section ref={ref} className="py-24 px-6 md:px-12 bg-secondary/10">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="text-center mb-16 test-anim">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground block mb-2">Voices of Trust</span>
+          <h2 className="text-4xl md:text-5xl font-sans font-medium">Client Stories</h2>
         </div>
-        <div className="flex justify-center gap-3 mt-10">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-8" : "bg-primary/30"}`}
-              aria-label={`Testimonial ${i + 1}`}
-            />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t, idx) => (
+            <div key={idx} className="test-anim bg-background p-10 rounded-2xl shadow-sm border border-border/40 flex flex-col justify-between">
+              <div>
+                <span className="text-5xl font-serif text-muted-foreground/30 leading-none block mb-4">"</span>
+                <p className="text-foreground/80 leading-relaxed font-serif italic mb-8">
+                  {t.quote}
+                </p>
+              </div>
+              <div className="border-t border-border pt-6 mt-auto">
+                <span className="block font-semibold text-sm">{t.author}</span>
+                <span className="block text-xs text-muted-foreground mt-1">{t.role}</span>
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -25,7 +25,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
         <a href="#" className="font-sans text-2xl md:text-3xl font-bold tracking-tighter text-foreground">
-          company name
+          Jainam Decor
         </a>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
