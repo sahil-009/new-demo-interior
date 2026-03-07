@@ -74,7 +74,7 @@ const ServicesGridSection = () => {
                 <span className="text-sm font-semibold tracking-wider text-primary/70">{s.num}</span>
                 <h3 className="text-2xl lg:text-3xl font-serif text-foreground transition-colors duration-300">{s.title}</h3>
               </div>
-              <p className="text-foreground/70 leading-relaxed text-sm md:text-base font-light">
+              <p className="text-foreground/70 leading-relaxed text-sm md:text-base font-sans font-light">
                 {s.desc}
               </p>
               

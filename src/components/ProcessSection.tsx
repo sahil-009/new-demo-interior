@@ -59,7 +59,7 @@ const ProcessSection = () => {
               Our Process
             </h2>
           </div>
-          <p className="text-foreground/60 max-w-sm text-base md:text-lg font-light leading-relaxed">
+          <p className="text-foreground/60 max-w-sm text-base md:text-lg font-sans font-light leading-relaxed">
             A seamless, curated journey from initial concept to the final, breathtaking reality of your space.
           </p>
         </div>
@@ -82,7 +82,7 @@ const ProcessSection = () => {
                 <h3 className="text-2xl font-serif text-foreground mb-4 group-hover:text-white transition-colors duration-500">
                   {p.title}
                 </h3>
-                <p className="text-foreground/60 text-sm md:text-base font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500">
+                <p className="text-foreground/60 text-sm md:text-base font-sans font-light leading-relaxed group-hover:text-white/80 transition-colors duration-500">
                   {p.desc}
                 </p>
               </div>

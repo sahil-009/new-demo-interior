@@ -11,9 +11,11 @@ import LocationSection from "@/components/LocationSection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => (
   <div className="min-h-screen bg-background relative">
+    <CustomCursor />
     <Navbar />
     <HeroSection />
     <FounderSection />

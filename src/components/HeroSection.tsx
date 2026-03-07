@@ -52,7 +52,7 @@ const HeroSection = () => {
         {/* Bottom Left Glassmorphism Card */}
         <div className="hero-card absolute bottom-6 left-6 md:bottom-10 md:left-10 w-[calc(100%-3rem)] md:w-auto md:max-w-2xl bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center shadow-2xl">
           <div className="flex-1 space-y-6">
-            <p className="text-white/95 text-xs md:text-sm leading-relaxed font-medium">
+            <p className="text-white/95 text-xs md:text-sm leading-relaxed font-sans font-medium">
               Crafting spaces that harmonize modern aesthetics with timeless elegance, our contemporary interior designs breathe life into every room, redefining the essence of chic living.
             </p>
             <button className="bg-black text-white px-6 py-2.5 rounded-full text-[10px] md:text-xs font-semibold tracking-wider hover:bg-black/80 transition-colors uppercase">

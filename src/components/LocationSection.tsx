@@ -29,7 +29,7 @@ const LocationSection = () => {
         <div className="text-center mb-16 loc-anim">
           <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground block mb-2">Location</span>
           <h2 className="text-4xl md:text-5xl font-sans font-medium">Visit Our Studio</h2>
-          <p className="text-muted-foreground mt-4 text-sm md:text-base">We welcome you to experience our design philosophy in person.</p>
+          <p className="text-muted-foreground mt-4 text-sm md:text-base font-sans font-light">We welcome you to experience our design philosophy in person.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
