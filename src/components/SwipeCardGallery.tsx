@@ -7,27 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    src: "/images-for-everything/spacejoy-KJUGhE9ojro-unsplash.jpg",
     title: "The Penthouse Suite",
     location: "Bengaluru"
   },
   {
-    src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    src: "/images-for-everything/spacejoy-TjBKSTxWxQA-unsplash.jpg",
     title: "Coastal Retreat",
     location: "Pune"
   },
   {
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    src: "/images-for-everything/spacejoy-V9BfXrN0ezM-unsplash.jpg",
     title: "Urban Loft",
     location: "Mumbai"
   },
   {
-    src: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
+    src: "/images-for-everything/spacejoy-Cc-grZAayAk-unsplash.jpg",
     title: "Heritage Mansion",
     location: "Delhi"
   },
   {
-    src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80",
+    src: "/images-for-everything/spacejoy-TjBKSTxWxQA-unsplash (1).jpg",
     title: "Sky Garden Villa",
     location: "Hyderabad"
   }
@@ -53,22 +53,22 @@ const DraggableCard = ({ image, stackIndex, totalVisible, onSwipe, active }: Car
   const cardRotate = depth * 1.5;
 
   const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    const threshold = 100;
-    const velocityThreshold = 400;
+    const threshold = 60;
+    const velocityThreshold = 200;
 
     if (Math.abs(info.offset.x) > threshold || Math.abs(info.velocity.x) > velocityThreshold) {
       const flyDirection = info.offset.x > 0 ? 1 : -1;
-      animate(x, flyDirection * 800, {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
+      animate(x, flyDirection * 600, {
+        type: "tween",
+        duration: 0.2,
+        ease: "easeOut",
         onComplete: () => {
           x.set(0);
           onSwipe();
         },
       });
     } else {
-      animate(x, 0, { type: "spring", stiffness: 400, damping: 25 });
+      animate(x, 0, { type: "spring", stiffness: 500, damping: 30 });
     }
   };
 
@@ -137,7 +137,7 @@ const DraggableCard = ({ image, stackIndex, totalVisible, onSwipe, active }: Car
         rotate: cardRotate,
         opacity: 1 - depth * 0.2,
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      transition={{ type: "spring", stiffness: 500, damping: 30 }}
       style={{
         marginLeft: "-160px",
         width: "320px",
@@ -210,12 +210,10 @@ const SwipeCardGallery = () => {
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-foreground/50 text-sm md:text-base font-sans font-normal leading-relaxed mb-4">
-              Swipe through our curated collection of handcrafted interiors. Each project tells a unique story.
-            </p>
+            <p className="text-foreground/50 text-sm md:text-base font-sans font-normal leading-relaxed mb-4"><b>Swipe through</b> our curated collection of handcrafted interiors. Each project tells a unique story.</p>
             <p className="text-foreground/30 text-xs font-semibold tracking-wider uppercase flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              Drag to explore
+              <b>Drag to explore</b>
             </p>
           </div>
         </div>
@@ -241,9 +239,8 @@ const SwipeCardGallery = () => {
           {images.map((_, i) => (
             <div
               key={i}
-              className={`h-2 rounded-full transition-all duration-500 ${
-                order[0] === i ? "bg-foreground w-8" : "bg-foreground/15 w-2"
-              }`}
+              className={`h-2 rounded-full transition-all duration-500 ${order[0] === i ? "bg-foreground w-8" : "bg-foreground/15 w-2"
+                }`}
             />
           ))}
         </div>

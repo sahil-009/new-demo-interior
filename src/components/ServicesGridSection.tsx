@@ -9,42 +9,42 @@ const services = [
     num: "01",
     title: "Living Spaces",
     desc: "Transform your living room into a sanctuary of comfort and sophistication.",
-    img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    img: "/images-for-everything/a65-design-GAZwGtrlozo-unsplash.jpg",
     color: "#1a1a2e"
   },
   {
     num: "02",
     title: "Modular Kitchens",
     desc: "Culinary spaces that blend functionality with aesthetics, designed for the modern epicurean.",
-    img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    img: "/images-for-everything/clay-banks-KLPARZr59Vs-unsplash.jpg",
     color: "#2d3436"
   },
   {
     num: "03",
     title: "Bedrooms",
     desc: "Intimate retreats crafted for rest and rejuvenation, balancing serenity with expression.",
-    img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80",
+    img: "/images-for-everything/collov-home-design-5a7URgkummE-unsplash.jpg",
     color: "#0c0c1d"
   },
   {
     num: "04",
     title: "Wardrobes",
     desc: "Custom storage solutions that celebrate organization and architectural beauty.",
-    img: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=800&q=80",
+    img: "/images-for-everything/greg-rivers-upekOABr32I-unsplash.jpg",
     color: "#1e272e"
   },
   {
     num: "05",
     title: "Bathrooms",
     desc: "Spa-inspired sanctuaries that transform daily rituals into moments of luxury.",
-    img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
+    img: "/images-for-everything/lisa-anna-6Zq6ZlCnUWM-unsplash.jpg",
     color: "#2d2d3f"
   },
   {
     num: "06",
     title: "Custom Furniture",
     desc: "Bespoke pieces designed and crafted to perfectly match your space.",
-    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    img: "/images-for-everything/spacejoy-Cc-grZAayAk-unsplash.jpg",
     color: "#1a1a2e"
   }
 ];
