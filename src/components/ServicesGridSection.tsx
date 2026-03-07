@@ -8,32 +8,44 @@ const services = [
   {
     num: "01",
     title: "Living Spaces",
-    desc: "Transform your living room into a sanctuary of comfort and sophistication, where every element speaks to your lifestyle."
+    desc: "Transform your living room into a sanctuary of comfort and sophistication.",
+    img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    color: "#1a1a2e"
   },
   {
     num: "02",
     title: "Modular Kitchens",
-    desc: "Culinary spaces that blend functionality with aesthetics, designed for the modern epicurean."
+    desc: "Culinary spaces that blend functionality with aesthetics, designed for the modern epicurean.",
+    img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    color: "#2d3436"
   },
   {
     num: "03",
     title: "Bedrooms",
-    desc: "Intimate retreats crafted for rest and rejuvenation, balancing serenity with personal expression."
+    desc: "Intimate retreats crafted for rest and rejuvenation, balancing serenity with expression.",
+    img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80",
+    color: "#0c0c1d"
   },
   {
     num: "04",
     title: "Wardrobes",
-    desc: "Custom storage solutions that celebrate organization while adding architectural beauty to your space."
+    desc: "Custom storage solutions that celebrate organization and architectural beauty.",
+    img: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=800&q=80",
+    color: "#1e272e"
   },
   {
     num: "05",
     title: "Bathrooms",
-    desc: "Spa-inspired sanctuaries that transform daily rituals into moments of luxury and calm."
+    desc: "Spa-inspired sanctuaries that transform daily rituals into moments of luxury.",
+    img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
+    color: "#2d2d3f"
   },
   {
     num: "06",
     title: "Custom Furniture",
-    desc: "Bespoke pieces designed and crafted to perfectly match your space and functional requirements."
+    desc: "Bespoke pieces designed and crafted to perfectly match your space.",
+    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    color: "#1a1a2e"
   }
 ];
 
@@ -42,11 +54,22 @@ const ServicesGridSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".svc-item",
+      // Header animation
+      gsap.fromTo(".svc-header",
         { y: 50, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out",
-          scrollTrigger: { trigger: ref.current, start: "top 75%" }
+          y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 80%" }
+        }
+      );
+
+      // Cards stagger in with 3D effect
+      gsap.fromTo(".svc-card",
+        { y: 100, opacity: 0, scale: 0.9 },
+        {
+          y: 0, opacity: 1, scale: 1,
+          duration: 1, stagger: 0.12, ease: "power3.out",
+          scrollTrigger: { trigger: ".svc-grid", start: "top 85%" }
         }
       );
     }, ref);
@@ -54,37 +77,73 @@ const ServicesGridSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 px-6 md:px-12 bg-[#F9F8F6]">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-20 svc-item flex flex-col items-center">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary/80 mb-4 block">Our Services</span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight">What We Create</h2>
-          <div className="w-16 h-[1px] bg-foreground/20 mt-8"></div>
+    <section ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent"></div>
+      <div className="absolute -top-40 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-[1300px] mx-auto">
+        {/* Section Header */}
+        <div className="svc-header flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="w-12 h-[1px] bg-foreground/30"></span>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Our Services</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+              What We<br />Create
+            </h2>
+          </div>
+          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-light leading-relaxed">
+            From concept to completion, we craft extraordinary spaces that reflect your unique vision and lifestyle.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        {/* Services Grid */}
+        <div className="svc-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {services.map((s, i) => (
-            <div key={i} className="svc-item group flex flex-col pt-6 relative">
-              {/* Top Border with hover animation */}
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-border transition-all duration-500 overflow-hidden">
-                <div className="w-full h-full bg-foreground transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+            <div
+              key={i}
+              className="svc-card group relative h-[280px] sm:h-[320px] md:h-[380px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer"
+            >
+              {/* Background Image */}
+              <img
+                src={s.img}
+                alt={s.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 transition-all duration-500 group-hover:from-black/90 group-hover:via-black/50"></div>
+
+              {/* Number tag */}
+              <div className="absolute top-5 left-5 sm:top-6 sm:left-6">
+                <span className="text-white/30 text-xs font-semibold tracking-widest uppercase group-hover:text-white/60 transition-colors duration-500">
+                  {s.num}
+                </span>
               </div>
-              
-              <div className="flex items-baseline gap-4 mb-6">
-                <span className="text-sm font-semibold tracking-wider text-primary/70">{s.num}</span>
-                <h3 className="text-2xl lg:text-3xl font-serif text-foreground transition-colors duration-300">{s.title}</h3>
+
+              {/* Arrow Button */}
+              <div className="absolute top-5 right-5 sm:top-6 sm:right-6">
+                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </div>
               </div>
-              <p className="text-foreground/70 leading-relaxed text-sm md:text-base font-sans font-light">
-                {s.desc}
-              </p>
-              
-              <div className="mt-8 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-xs font-semibold uppercase tracking-wider text-foreground">
-                <span className="mr-2">Explore</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+
+              {/* Bottom Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8">
+                <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-serif font-medium mb-2 transform group-hover:-translate-y-1 transition-transform duration-500">
+                  {s.title}
+                </h3>
+                <p className="text-white/0 font-sans font-light text-xs sm:text-sm leading-relaxed max-w-[280px] group-hover:text-white/70 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  {s.desc}
+                </p>
               </div>
+
+              {/* Bottom border accent on hover */}
+              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-white/60 group-hover:w-full transition-all duration-700 ease-out"></div>
             </div>
           ))}
         </div>

@@ -8,14 +8,14 @@ const testimonials = [
   {
     author: "Aditya & family",
     role: "Homeowner",
-    quote: "RU Interior Design paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience.",
+    quote: "Jainam Decor paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience.",
     gradient: "from-[#1a1a2e] to-[#16213e]",
     accent: "#E8D5B7"
   },
   {
     author: "Vikash and Rupali",
     role: "Homeowner",
-    quote: "RU Interior Design paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience.",
+    quote: "Jainam Decor paid attention to the smallest details. The space feels calm, functional, and timeless. We couldn't have asked for a better experience.",
     gradient: "from-[#F2ECE4] to-[#E8DDD0]",
     accent: "#8B7355"
   },

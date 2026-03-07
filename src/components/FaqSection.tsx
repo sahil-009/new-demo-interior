@@ -38,10 +38,18 @@ const FaqSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".faq-anim",
-        { y: 30, opacity: 0 },
+      gsap.fromTo(".faq-header",
+        { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out",
+          y: 0, opacity: 1, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 80%" }
+        }
+      );
+
+      gsap.fromTo(".faq-content",
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, delay: 0.2, ease: "power3.out",
           scrollTrigger: { trigger: ref.current, start: "top 80%" }
         }
       );
@@ -50,21 +58,30 @@ const FaqSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 px-6 md:px-12 bg-secondary/10">
-      <div className="max-w-[800px] mx-auto">
-        <div className="text-center mb-16 faq-anim">
-          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground block mb-2">Common Questions</span>
-          <h2 className="text-4xl md:text-5xl font-sans font-medium">Frequently Asked Questions</h2>
+    <section ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent"></div>
+
+      <div className="max-w-[900px] mx-auto">
+        {/* Header */}
+        <div className="faq-header text-center mb-16 md:mb-20">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="w-12 h-[1px] bg-foreground/30"></span>
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Common Questions</span>
+            <span className="w-12 h-[1px] bg-foreground/30"></span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-foreground tracking-tight">
+            Frequently Asked
+          </h2>
         </div>
         
-        <div className="faq-anim">
+        <div className="faq-content">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-lg font-medium hover:no-underline hover:text-primary transition-colors py-6">
+              <AccordionItem key={i} value={`item-${i}`} className="border-b border-foreground/10">
+                <AccordionTrigger className="text-left text-base md:text-lg font-serif hover:no-underline hover:text-primary transition-colors py-7 md:py-8">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6 font-sans font-light">
+                <AccordionContent className="text-foreground/50 leading-relaxed text-sm md:text-base pb-8 font-sans font-light">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

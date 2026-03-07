@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,11 +11,19 @@ const LocationSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".loc-anim",
+      gsap.fromTo(".loc-header",
         { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out",
+          y: 0, opacity: 1, duration: 1, ease: "power3.out",
           scrollTrigger: { trigger: ref.current, start: "top 80%" }
+        }
+      );
+
+      gsap.fromTo(".loc-card",
+        { y: 60, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 75%" }
         }
       );
     }, ref);
@@ -24,22 +31,35 @@ const LocationSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 px-6 md:px-12 bg-background">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16 loc-anim">
-          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground block mb-2">Location</span>
-          <h2 className="text-4xl md:text-5xl font-sans font-medium">Visit Our Studio</h2>
-          <p className="text-muted-foreground mt-4 text-sm md:text-base font-sans font-light">We welcome you to experience our design philosophy in person.</p>
+    <section id="contact" ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-white relative overflow-hidden">
+      <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/3 pointer-events-none"></div>
+
+      <div className="max-w-[1300px] mx-auto">
+        {/* Header */}
+        <div className="loc-header flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="w-12 h-[1px] bg-foreground/30"></span>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Location</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+              Visit Our Studio
+            </h2>
+          </div>
+          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-light leading-relaxed">
+            We welcome you to experience our design philosophy in person.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
           {/* Left: Contact Info & Form */}
-          <div className="loc-anim flex flex-col gap-10">
-            <div>
-              <h3 className="text-2xl font-medium mb-6">Contact Us</h3>
-              <div className="space-y-4 text-muted-foreground text-sm md:text-base">
+          <div className="loc-card flex flex-col gap-6">
+            {/* Contact Info Card */}
+            <div className="bg-[#F9F8F6] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
+              <h3 className="text-xl md:text-2xl font-serif font-medium mb-6">Contact Us</h3>
+              <div className="space-y-4 text-foreground/60 text-sm md:text-base font-sans font-light">
                 <p>
-                  <strong className="text-foreground block mb-1">Jainam Decor</strong>
+                  <strong className="text-foreground block mb-1 font-semibold text-sm">Jainam Decor</strong>
                   No. 238/1, Balaraju Building<br/>
                   17th, Begur Rd<br/>
                   Near St Francis School, Amalodhbhava Nagar<br/>
@@ -52,20 +72,23 @@ const LocationSection = () => {
               </div>
             </div>
 
-            <div className="bg-secondary/20 p-8 rounded-2xl">
-              <h3 className="text-xl font-medium mb-6">Send a Message</h3>
+            {/* Form Card */}
+            <div className="bg-[#0F0F0F] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] flex-1">
+              <h3 className="text-xl md:text-2xl font-serif font-medium mb-6 text-white">Send a Message</h3>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <Input placeholder="Your Name" className="bg-background" />
-                <Input placeholder="Your Email" type="email" className="bg-background" />
-                <Input placeholder="Phone Number" type="tel" className="bg-background" />
-                <Textarea placeholder="How can we help you?" className="bg-background min-h-[120px]" />
-                <Button className="w-full mt-2">Submit Request</Button>
+                <Input placeholder="Your Name" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl h-12" />
+                <Input placeholder="Your Email" type="email" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl h-12" />
+                <Input placeholder="Phone Number" type="tel" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl h-12" />
+                <Textarea placeholder="How can we help you?" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 rounded-xl min-h-[120px]" />
+                <button className="w-full bg-white text-black py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase hover:bg-white/90 transition-colors mt-2">
+                  Submit Request
+                </button>
               </form>
             </div>
           </div>
 
           {/* Right: Map */}
-          <div className="loc-anim h-[400px] lg:h-full min-h-[500px] bg-muted rounded-3xl overflow-hidden relative">
+          <div className="loc-card h-[400px] lg:h-auto min-h-[500px] bg-muted rounded-[1.5rem] md:rounded-[2rem] overflow-hidden relative">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.075777377628!2d73.89202231059296!3d18.525477482496324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1fd5f3cf5b7%3A0xb844f0a6650d55fe!2sJainam%20Decors!5e0!3m2!1sen!2sin!4v1772867646977!5m2!1sen!2sin" 
               width="100%" 
