@@ -193,7 +193,7 @@ const SwipeCardGallery = () => {
   const visibleCards = order.slice(0, 4);
 
   return (
-    <section ref={sectionRef} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
+    <section id="portfolio" ref={sectionRef} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent"></div>
       <div className="absolute -bottom-40 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -205,12 +205,12 @@ const SwipeCardGallery = () => {
               <span className="w-12 h-[1px] bg-foreground/30"></span>
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Portfolio</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground tracking-tight leading-[1.1]">
               View Our<br />Works
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-foreground/50 text-sm md:text-base font-sans font-light leading-relaxed mb-4">
+            <p className="text-foreground/50 text-sm md:text-base font-sans font-normal leading-relaxed mb-4">
               Swipe through our curated collection of handcrafted interiors. Each project tells a unique story.
             </p>
             <p className="text-foreground/30 text-xs font-semibold tracking-wider uppercase flex items-center gap-2">

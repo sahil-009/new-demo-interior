@@ -77,7 +77,7 @@ const ServicesGridSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
+    <section id="services" ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-[#F9F8F6] relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent"></div>
       <div className="absolute -top-40 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -90,11 +90,11 @@ const ServicesGridSection = () => {
               <span className="w-12 h-[1px] bg-foreground/30"></span>
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Our Services</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground tracking-tight leading-[1.1]">
               What We<br />Create
             </h2>
           </div>
-          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-light leading-relaxed">
+          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-normal leading-relaxed">
             From concept to completion, we craft extraordinary spaces that reflect your unique vision and lifestyle.
           </p>
         </div>
@@ -137,7 +137,7 @@ const ServicesGridSection = () => {
                 <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-serif font-medium mb-2 transform group-hover:-translate-y-1 transition-transform duration-500">
                   {s.title}
                 </h3>
-                <p className="text-white/0 font-sans font-light text-xs sm:text-sm leading-relaxed max-w-[280px] group-hover:text-white/70 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                <p className="text-white/0 font-sans font-normal text-xs sm:text-sm leading-relaxed max-w-[280px] group-hover:text-white/70 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                   {s.desc}
                 </p>
               </div>

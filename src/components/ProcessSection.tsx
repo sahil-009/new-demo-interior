@@ -67,7 +67,7 @@ const ProcessSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-white relative overflow-hidden">
+    <section id="process" ref={ref} className="py-28 md:py-36 px-4 sm:px-6 md:px-12 bg-white relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#F9F8F6] rounded-full blur-[120px] translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/3 pointer-events-none"></div>
@@ -80,11 +80,11 @@ const ProcessSection = () => {
               <span className="w-12 h-[1px] bg-foreground/30"></span>
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">How We Work</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground tracking-tight leading-[1.1]">
               Our Process
             </h2>
           </div>
-          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-light leading-relaxed">
+          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-normal leading-relaxed">
             A seamless, curated journey from initial concept to the final, breathtaking reality of your space.
           </p>
         </div>
@@ -122,7 +122,7 @@ const ProcessSection = () => {
                         <h3 className="text-2xl md:text-3xl font-serif text-foreground group-hover:text-white mb-4 transition-colors duration-500">
                           {p.title}
                         </h3>
-                        <p className="text-foreground/50 text-sm md:text-base font-sans font-light leading-relaxed group-hover:text-white/70 transition-colors duration-500">
+                        <p className="text-foreground/50 text-sm md:text-base font-sans font-normal leading-relaxed group-hover:text-white/70 transition-colors duration-500">
                           {p.desc}
                         </p>
                       </div>

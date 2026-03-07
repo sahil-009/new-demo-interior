@@ -111,7 +111,7 @@ const FounderSection = () => {
           {/* Glassmorphism Card Overlay */}
           <div className="founder-glass absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8 md:right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 md:p-6 flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center shadow-2xl z-10">
             <div className="flex-1 space-y-4 md:space-y-5">
-              <p className="text-white/95 text-[10px] md:text-sm leading-relaxed font-sans font-light">
+              <p className="text-white/95 text-[10px] md:text-sm leading-relaxed font-sans font-normal">
                 Curating environments that blend personal narratives with sophisticated design, our bespoke interiors capture the true spirit of refined living.
               </p>
               <button className="bg-black text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold tracking-wider hover:bg-black/80 hover:scale-105 active:scale-95 transition-all duration-300 uppercase">
@@ -150,7 +150,7 @@ const FounderSection = () => {
           </div>
 
           {/* Heading with per-word animation */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-medium tracking-tight mb-10 leading-[1.15] relative z-10" style={{ perspective: "600px" }}>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold tracking-tight mb-10 leading-[1.15] relative z-10" style={{ perspective: "600px" }}>
             {headingWords.map((word, i) => (
               <span key={i} className="founder-word inline-block mr-[0.3em]" style={{ transformStyle: "preserve-3d" }}>
                 {word}
@@ -159,7 +159,7 @@ const FounderSection = () => {
           </h2>
 
           {/* Body text */}
-          <p className="founder-body font-sans font-light text-foreground/60 leading-[1.8] text-base md:text-lg mb-10 max-w-lg relative z-10">
+          <p className="founder-body font-sans font-normal text-foreground/60 leading-[1.8] text-base md:text-lg mb-10 max-w-lg relative z-10">
             With a passion for aesthetics and functional design, we strive to bring spaces to life. Our approach is deeply personal — ensuring that every project reflects the true essence of its inhabitants while pushing boundaries of contemporary design.
           </p>
 

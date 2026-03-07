@@ -60,7 +60,7 @@ const AboutSection = () => {
               <span className="inline-block text-[10px] font-semibold tracking-wider uppercase border border-foreground/10 rounded-full px-3 py-1 bg-white/50">
                 Aesthetic
               </span>
-              <p className="text-xs md:text-sm font-sans font-light text-foreground/80 leading-relaxed max-w-[200px]">
+              <p className="text-xs md:text-sm font-sans font-normal text-foreground/80 leading-relaxed max-w-[200px]">
                 Aesthetic furniture where every piece tells a story of style
               </p>
             </div>
@@ -81,7 +81,7 @@ const AboutSection = () => {
               <span className="text-[10px] font-semibold tracking-wider uppercase text-white/90">
                 Best Furniture
               </span>
-              <p className="text-white text-sm md:text-base font-sans font-light mt-2 max-w-[200px] leading-snug">
+              <p className="text-white text-sm md:text-base font-sans font-normal mt-2 max-w-[200px] leading-snug">
                 Indulge in the artistry of chic living today
               </p>
             </div>

@@ -42,11 +42,11 @@ const LocationSection = () => {
               <span className="w-12 h-[1px] bg-foreground/30"></span>
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Location</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground tracking-tight leading-[1.1]">
               Visit Our Studio
             </h2>
           </div>
-          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-light leading-relaxed">
+          <p className="text-foreground/50 max-w-sm text-sm md:text-base font-sans font-normal leading-relaxed">
             We welcome you to experience our design philosophy in person.
           </p>
         </div>
@@ -57,7 +57,7 @@ const LocationSection = () => {
             {/* Contact Info Card */}
             <div className="bg-[#F9F8F6] p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem]">
               <h3 className="text-xl md:text-2xl font-serif font-medium mb-6">Contact Us</h3>
-              <div className="space-y-4 text-foreground/60 text-sm md:text-base font-sans font-light">
+              <div className="space-y-4 text-foreground/60 text-sm md:text-base font-sans font-normal">
                 <p>
                   <strong className="text-foreground block mb-1 font-semibold text-sm">Jainam Decor</strong>
                   No. 238/1, Balaraju Building<br/>

@@ -5,7 +5,10 @@ import { gsap } from "gsap";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
   { label: "Projects", href: "#projects" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -51,18 +54,16 @@ const Navbar = () => {
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled
             ? "py-2 px-4 sm:px-6"
-            : "py-4 sm:py-6 px-4 sm:px-8"
-        }`}
+            : "py-2 sm:py-3 px-4 sm:px-8"
+          }`}
       >
         <div
-          className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            scrolled
+          className={`max-w-7xl mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled
               ? "bg-white/70 backdrop-blur-2xl shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] border border-white/40 rounded-full px-6 sm:px-8 h-14 sm:h-16"
               : "bg-transparent px-2 sm:px-4 h-20"
-          }`}
+            }`}
         >
           {/* Logo */}
           <a
@@ -122,9 +123,8 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         {/* Backdrop */}
         <div className="absolute inset-0 bg-background/98 backdrop-blur-3xl"></div>

@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-32 px-6 md:px-12 bg-background relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-32 px-6 md:px-12 bg-background relative overflow-hidden">
       {/* Decorative blurred circles */}
       <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/40 rounded-full blur-[100px] translate-x-1/3 pointer-events-none"></div>
@@ -89,11 +89,11 @@ const TestimonialsSection = () => {
               <span className="w-12 h-[1px] bg-primary/40"></span>
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary/80">Voices of Trust</span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground tracking-tight leading-[1.1]">
               Client Stories
             </h2>
           </div>
-          <p className="text-foreground/50 max-w-sm text-base font-sans font-light leading-relaxed">
+          <p className="text-foreground/50 max-w-sm text-base font-sans font-normal leading-relaxed">
             Real experiences from those who trusted us to transform their spaces into something extraordinary.
           </p>
         </div>
@@ -125,7 +125,7 @@ const TestimonialsSection = () => {
                   >
                     "
                   </span>
-                  <p className={`font-sans font-light leading-[1.8] text-sm md:text-base ${isDark ? "text-white/80" : "text-foreground/70"}`}>
+                  <p className={`font-sans font-normal leading-[1.8] text-sm md:text-base ${isDark ? "text-white/80" : "text-foreground/70"}`}>
                     {t.quote}
                   </p>
                 </div>

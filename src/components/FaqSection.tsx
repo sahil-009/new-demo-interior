@@ -69,7 +69,7 @@ const FaqSection = () => {
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-foreground/50">Common Questions</span>
             <span className="w-12 h-[1px] bg-foreground/30"></span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-foreground tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-sans font-bold text-foreground tracking-tight">
             Frequently Asked
           </h2>
         </div>
@@ -81,7 +81,7 @@ const FaqSection = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-serif hover:no-underline hover:text-primary transition-colors py-7 md:py-8">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/50 leading-relaxed text-sm md:text-base pb-8 font-sans font-light">
+                <AccordionContent className="text-foreground/50 leading-relaxed text-sm md:text-base pb-8 font-sans font-normal">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
